@@ -416,9 +416,9 @@
                         <div className="grid md:grid-cols-2 gap-8">
                             {filteredProjects.map((project) => (
                                 <div key={project.id} className="group relative bg-slate-900/50 border border-white/10 rounded-3xl overflow-hidden hover:border-blue-500/50 transition-all duration-500">
-                                    <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${project.color} opacity-10 blur-3xl group-hover:opacity-20 transition-opacity`}></div>
+                                    <div className={`pointer-events-none absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${project.color} opacity-10 blur-3xl group-hover:opacity-20 transition-opacity`}></div>
 
-                                    <div className="p-8">
+                                    <div className="relative p-8">
                                         <div className="flex justify-between items-start mb-6">
                                             <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${project.color} flex items-center justify-center shadow-lg`}>
                                                 <Code2 size={24} className="text-white" />
