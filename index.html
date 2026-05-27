@@ -91,6 +91,26 @@
         }
         .btn-press:active { transform: scale(0.97); }
 
+        .cert-scroll {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(96, 165, 250, 0.4) rgba(255, 255, 255, 0.04);
+            scroll-behavior: smooth;
+            mask-image: linear-gradient(to bottom, transparent 0, black 12px, black calc(100% - 24px), transparent 100%);
+        }
+        .cert-scroll::-webkit-scrollbar { width: 6px; }
+        .cert-scroll::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+        }
+        .cert-scroll::-webkit-scrollbar-thumb {
+            background: rgba(96, 165, 250, 0.4);
+            border-radius: 10px;
+            transition: background 0.2s ease;
+        }
+        .cert-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(96, 165, 250, 0.7);
+        }
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -318,33 +338,6 @@
                     pdf: "certificates/cicd-infosys.pdf",
                     icon: Cloud,
                     color: "from-blue-500 to-cyan-500"
-                },
-                {
-                    name: "Apex Specialist Super Badge",
-                    issuer: "Salesforce Trailhead",
-                    year: "2024",
-                    category: "Salesforce",
-                    pdf: null,
-                    icon: Award,
-                    color: "from-sky-500 to-indigo-500"
-                },
-                {
-                    name: "Process Automation Specialist",
-                    issuer: "Salesforce Trailhead",
-                    year: "2024",
-                    category: "Salesforce",
-                    pdf: null,
-                    icon: Award,
-                    color: "from-sky-500 to-indigo-500"
-                },
-                {
-                    name: "Developer Super Set",
-                    issuer: "Salesforce Trailhead",
-                    year: "2024",
-                    category: "Salesforce",
-                    pdf: null,
-                    icon: Award,
-                    color: "from-sky-500 to-indigo-500"
                 }
             ];
 
@@ -608,7 +601,7 @@
                             </div>
                         </Reveal>
 
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                        <div className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-5 ${certificates.length > 9 ? 'cert-scroll max-h-[720px] overflow-y-auto pr-3' : ''}`}>
                             {certificates.map((cert, idx) => {
                                 const Icon = cert.icon;
                                 const cardInner = (
